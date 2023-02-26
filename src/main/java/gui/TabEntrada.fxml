@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="704.0" maxWidth="1065.0" minHeight="388.0" minWidth="543.0" prefHeight="388.0" prefWidth="543.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TabInletController">
+	<children>
+		<GridPane prefHeight="295.0" prefWidth="828.0">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="342.0" minWidth="100.0" prefWidth="233.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints maxHeight="75.0" minHeight="75.0" prefHeight="75.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="75.0" minHeight="75.0" prefHeight="75.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="75.0" minHeight="75.0" prefHeight="75.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="75.0" minHeight="75.0" prefHeight="75.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<VBox prefHeight="200.0" prefWidth="100.0">
+					<children>
+						<Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Inlet Methane Flow">
+							<font>
+								<Font size="13.0" />
+							</font>
+						</Text>
+						<HBox>
+							<children>
+								<TextField fx:id="CH4Flow" alignment="CENTER" maxHeight="35.0" maxWidth="150.0" minHeight="35.0" minWidth="150.0" prefHeight="35.0" prefWidth="150.0">
+									<font>
+										<Font size="13.0" />
+									</font>
+								</TextField>
+								<ComboBox fx:id="comboBoxVazaoCH4" maxHeight="35.0" maxWidth="120.0" minHeight="35.0" minWidth="120.0" prefHeight="35.0" prefWidth="120.0" stylesheets="@css/ComboBoxCenter.css">
+									<HBox.margin>
+										<Insets left="30.0" />
+									</HBox.margin>
+								</ComboBox>
+							</children>
+							<VBox.margin>
+								<Insets top="10.0" />
+							</VBox.margin>
+						</HBox>
+					</children>
+				</VBox>
+				<VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+					<children>
+						<Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Inlet Carbon Dioxide Flow">
+							<font>
+								<Font size="13.0" />
+							</font>
+						</Text>
+						<HBox>
+							<children>
+								<TextField fx:id="CO2Flow" alignment="CENTER" maxHeight="35.0" maxWidth="150.0" minHeight="35.0" minWidth="150.0" prefHeight="35.0" prefWidth="150.0">
+									<font>
+										<Font size="13.0" />
+									</font>
+								</TextField>
+								<ComboBox fx:id="comboBoxVazaoCO2" maxHeight="35.0" maxWidth="120.0" minHeight="35.0" minWidth="120.0" prefHeight="35.0" prefWidth="120.0" stylesheets="@css/ComboBoxCenter.css">
+									<HBox.margin>
+										<Insets left="30.0" />
+									</HBox.margin>
+								</ComboBox>
+							</children>
+							<VBox.margin>
+								<Insets top="10.0" />
+							</VBox.margin>
+						</HBox>
+					</children>
+				</VBox>
+            <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="* Flows of methane and cabon dioxide at inlet temperature and pressure" GridPane.rowIndex="3">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Text>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+               <children>
+                  <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Pressure">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <HBox>
+                     <children>
+                        <TextField fx:id="pressure" alignment="CENTER" maxHeight="35.0" maxWidth="150.0" minHeight="35.0" minWidth="150.0" prefHeight="35.0" prefWidth="150.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextField>
+                        <ComboBox fx:id="comboBoxPressure" maxHeight="35.0" maxWidth="120.0" minHeight="35.0" minWidth="120.0" prefHeight="35.0" prefWidth="120.0" stylesheets="@css/ComboBoxCenter.css">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+			</children>
+			<VBox.margin>
+				<Insets left="25.0" top="50.0" />
+			</VBox.margin>
+		</GridPane>
+	</children>
+</VBox>

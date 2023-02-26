@@ -1,0 +1,135 @@
+
+
+
+
+.ribbonbar .tab {
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+	-fx-border-radius: 0;
+	-fx-border-width: 0 0 0 0;
+	-fx-pref-height: 90.0;
+	-fx-pref-width: 90.0;
+	-fx-padding: 0 0 0 0;
+}
+
+
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+	-fx-pref-width: 90.0;
+	-fx-pref-height: 90.0;
+	-fx-alignment: CENTER;
+	-fx-border-radius: 0;
+	-fx-padding: 0 0 0 0;
+}
+
+.ribbonbar .tab:hover {
+	-fx-background-color: #FFFFFF;
+	-fx-border-color: transparent;
+	-fx-border-width: 0 0 0 0;
+	-fx-border-radius: 0;
+}
+
+.ribbonbar .tab:selected {
+	-fx-background-color: #cccccc;
+	-fx-background-insets: 0;
+	-fx-border-color: #000000;
+	-fx-border-width: 0 0 0 0;
+	-fx-border-radius: 0;
+}
+
+.ribbonbar .tab:label {
+	-fx-font-weight: bold;
+	-fx-font-size: 15pt;
+	-fx-border-radius: 0;
+}
+
+
+.ribbonbar .tab:-content-area {
+	-fx-background-color: transparent;
+	-fx-border-width: 0 0 0 0;
+	-fx-border-radius: 0;
+}
+
+.ribbonbar: focused .focus-indicator {
+	-fx-border-color: transparent;
+	-fx-border-radius: 0;
+	-fx-border-width: 0 0 0 0;
+	-fx-border-radius: 0;
+}
+
+
+.ribbonbar .tab-header-area {
+	-fx-padding: 0 0 0 0;
+	-fx-border-radius: 0;
+	
+}
+
+
+.ribbonbar .tab-header-background {
+	-fx-background-color: transparent;
+	-fx-border-radius: 0;
+}
+
+.ribbonbar .headers-region .tab .tab-container .tab-label {
+	-fx-text-fill: #000000;
+	-fx-border-radius: 0;
+}
+
+.ribbonbar .headers-region .tab:selected .tab-container .tab-label {
+	-fx-text-fill: #0085e9;
+	-fx-border-radius: 0;
+}
+
+
+
+
+
+
+/* RIBBON GROUP */
+
+
+.ribbongroup{
+	-fx-background-color: linear-gradient(white 0%, #EFEBE9 60%);
+	-fx-background-radius: 0;
+	-fx-border-color: linear-gradient(transparent 0%, #D6D6D6 100%);
+	-fx-border-radius: 0;
+	-fx-border-width: 1;
+}
+
+.ribbongroup > .label{
+	-fx-font-size: 1em;
+	-fx-font-weight: bold;
+}
+
+.ribbongroup .button,
+.ribbongroup .menu.button {
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+}
+
+.ribbongroup .button:hover,
+.ribbongroup .menu.button:hover {
+	-fx-background-color: rgba(230,81,0,0.1);
+	-fx-border-color: #E65100;
+}
+
+.ribbongroup .button:pressed,
+.ribbongroup .menu.button:pressed {
+	-fx-background-color: #DDD;
+
+}
+
+.ribbongroup .menu-button .arrow-button {
+	-fx-alignment: BOTTOM-CENTER;
+	-fx-padding: 0.5em 0.667 em 0.667 em 0em;
+}
+
+.ribbongroup .menu-button .menu-item {
+	-fx-border-color: transparent;
+	-fx-border-width: 1 0 1 0;
+	-fx-background-color: rgba(230, 81, 0, 0.1);
+}
+
+.ribbongroup .menu-button .menu-item:focused > .label{
+	-fx-text-fill: #000;
+}
