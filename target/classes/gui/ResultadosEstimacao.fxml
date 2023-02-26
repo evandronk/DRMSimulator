@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="600.0" maxWidth="1200.0" minHeight="487.0"
+	minWidth="800.0" prefHeight="487.0" prefWidth="1200.0"
+	xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="gui.EstimationResultsController">
+	<children>
+		<HBox prefHeight="479.0" prefWidth="800.0">
+			<children>
+				<ScrollPane pickOnBounds="false" prefHeight="380.0"
+					prefWidth="500.0">
+					<content>
+						<HBox spacing="30.0">
+							<children>
+								<GridPane fx:id="gridPaneResultados">
+									<columnConstraints>
+										<ColumnConstraints hgrow="SOMETIMES"
+											minWidth="10.0" prefWidth="100.0" />
+									</columnConstraints>
+									<rowConstraints>
+										<RowConstraints minHeight="10.0"
+											prefHeight="30.0" vgrow="SOMETIMES" />
+									</rowConstraints>
+									<padding>
+										<Insets left="20.0" top="20.0" />
+									</padding>
+								</GridPane>
+								<GridPane fx:id="gridPaneParametrosR">
+									<columnConstraints>
+										<ColumnConstraints hgrow="SOMETIMES"
+											minWidth="10.0" prefWidth="100.0" />
+									</columnConstraints>
+									<rowConstraints>
+										<RowConstraints minHeight="10.0"
+											prefHeight="30.0" vgrow="SOMETIMES" />
+									</rowConstraints>
+									<HBox.margin>
+										<Insets left="20.0" top="20.0" />
+									</HBox.margin>
+								</GridPane>
+							</children>
+						</HBox>
+					</content>
+					<HBox.margin>
+						<Insets left="20.0" top="20.0" />
+					</HBox.margin>
+				</ScrollPane>
+				<VBox fx:id="vboxMain" fillWidth="false" maxWidth="500.0"
+					prefHeight="200.0" prefWidth="500.0">
+					<HBox.margin>
+						<Insets left="20.0" top="20.0" />
+					</HBox.margin>
+				</VBox>
+			</children>
+			<VBox.margin>
+				<Insets />
+			</VBox.margin>
+		</HBox>
+	</children>
+</VBox>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="vBoxMain" maxHeight="600.0" maxWidth="1208.0" minHeight="500.0" minWidth="803.0" prefHeight="600.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EstimationController">
+	<children>
+		<HBox alignment="CENTER" prefHeight="100.0" prefWidth="1180.0">
+			<children>
+				<Text fontSmoothingType="LCD" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Kinetics">
+					<HBox.margin>
+						<Insets />
+					</HBox.margin>
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Text>
+				<ComboBox fx:id="expressaoCombo" onAction="#updateComboBox" prefHeight="50.0" prefWidth="330.0" HBox.hgrow="SOMETIMES">
+					<HBox.margin>
+						<Insets left="25.0" />
+					</HBox.margin>
+				</ComboBox>
+			</children>
+			<VBox.margin>
+				<Insets top="20.0" />
+			</VBox.margin>
+		</HBox>
+		<HBox fillHeight="false" prefHeight="555.0" prefWidth="1180.0" spacing="20.0">
+			<children>
+				<HBox fx:id="hBoxDados2" prefHeight="551.0" prefWidth="627.0" spacing="50.0" HBox.hgrow="NEVER">
+					<HBox.margin>
+						<Insets bottom="20.0" left="20.0" right="20.0" />
+					</HBox.margin>
+					<children>
+						<VBox fx:id="vBoxDados1" prefHeight="511.0" prefWidth="616.0">
+							<children>
+								<HBox alignment="CENTER_LEFT" maxHeight="196.0" maxWidth="661.0" minHeight="75.0" minWidth="386.0" prefHeight="75.0" prefWidth="661.0">
+									<VBox.margin>
+										<Insets bottom="20.0" />
+									</VBox.margin>
+									<children>
+										<Text fontSmoothingType="LCD" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Experimental Data">
+											<HBox.margin>
+												<Insets />
+											</HBox.margin>
+											<font>
+												<Font size="13.0" />
+											</font>
+										</Text>
+										<Button fx:id="addRow" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#addRowAction" prefHeight="35.0" prefWidth="35.0" text="+">
+											<HBox.margin>
+												<Insets left="25.0" />
+											</HBox.margin>
+											<font>
+												<Font name="Verdana" size="13.0" />
+											</font>
+										</Button>
+										<Button fx:id="removeRow" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#removeRowAction" prefHeight="35.0" prefWidth="35.0" text="-">
+											<HBox.margin>
+												<Insets left="25.0" />
+											</HBox.margin>
+											<font>
+												<Font name="Verdana" size="13.0" />
+											</font>
+										</Button>
+										<Button fx:id="excelFile" maxHeight="35.0" maxWidth="120.0" minHeight="35.0" minWidth="120.0" mnemonicParsing="false" onAction="#loadExcelFile" prefHeight="35.0" prefWidth="120.0" text="Load Excel File">
+											<HBox.margin>
+												<Insets left="25.0" />
+											</HBox.margin>
+											<font>
+												<Font size="13.0" />
+											</font>
+										</Button>
+                              <ComboBox fx:id="comboBoxVazao" maxHeight="35.0" maxWidth="180.0" minHeight="35.0" minWidth="180.0" onAction="#updateCBVazao" prefHeight="35.0" prefWidth="180.0">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+									</children>
+								</HBox>
+								<ScrollPane fx:id="scrollPaneDados1" fitToHeight="true" maxHeight="454.0" maxWidth="200.0" minHeight="360.0" minWidth="200.0" pickOnBounds="false" prefHeight="454.0" prefWidth="200.0" style="-fx-background-color: transparent;">
+									<content>
+										<HBox fx:id="hBoxDados2" prefHeight="345.0" prefWidth="645.0">
+											<children>
+												<VBox fx:id="vBoxDados2" fillWidth="false" prefHeight="345.0" prefWidth="388.0">
+													<children>
+														<GridPane fx:id="gridPaneMedida">
+															<columnConstraints>
+																<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+															</columnConstraints>
+															<rowConstraints>
+																<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+															</rowConstraints>
+															<VBox.margin>
+																<Insets bottom="20.0" />
+															</VBox.margin>
+														</GridPane>
+														<GridPane fx:id="dadosExperimentaisGridPane" prefHeight="370.0" prefWidth="388.0">
+															<columnConstraints>
+																<ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+															</columnConstraints>
+															<rowConstraints>
+																<RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+															</rowConstraints>
+														</GridPane>
+													</children>
+												</VBox>
+												<VBox alignment="TOP_CENTER" maxWidth="210.0" minWidth="150.0" prefHeight="358.0" prefWidth="210.0">
+													<children>
+														<VBox fx:id="vBoxDados3" alignment="TOP_CENTER" fillWidth="false">
+															<children>
+																<GridPane fx:id="gridPaneResultadosMedida">
+																	<columnConstraints>
+																		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+																	</columnConstraints>
+																	<rowConstraints>
+																		<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+																	</rowConstraints>
+																</GridPane>
+																<HBox alignment="CENTER" maxHeight="36.0" maxWidth="149.0" minHeight="36.0" minWidth="149.0" prefHeight="36.0" prefWidth="149.0">
+																	<children>
+																		<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Experimental Results">
+																			<font>
+																				<Font size="13.0" />
+																			</font>
+																		</Text>
+																	</children>
+																	<padding>
+																		<Insets bottom="6.0" />
+																	</padding>
+																	<VBox.margin>
+																		<Insets top="15.0" />
+																	</VBox.margin>
+																</HBox>
+																<GridPane fx:id="resultadosGridPane" alignment="TOP_CENTER" minWidth="165.0" prefHeight="360.0" prefWidth="165.0">
+																	<columnConstraints>
+																		<ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" />
+																	</columnConstraints>
+																	<rowConstraints>
+																		<RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+																	</rowConstraints>
+																</GridPane>
+															</children>
+														</VBox>
+													</children>
+													<HBox.margin>
+														<Insets left="20.0" />
+													</HBox.margin>
+												</VBox>
+											</children>
+										</HBox>
+									</content>
+								</ScrollPane>
+							</children>
+						</VBox>
+					</children>
+				</HBox>
+				<VBox fillWidth="false" minHeight="400.0" prefHeight="480.0" prefWidth="397.0">
+					<HBox.margin>
+						<Insets />
+					</HBox.margin>
+					<children>
+						<HBox alignment="CENTER_LEFT" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" prefWidth="200.0">
+							<children>
+								<Text fontSmoothingType="LCD" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Estimation Method">
+									<font>
+										<Font size="13.0" />
+									</font>
+									<HBox.margin>
+										<Insets />
+									</HBox.margin>
+								</Text>
+								<ComboBox fx:id="newComboBoxMetodo" maxHeight="35.0" maxWidth="165.0" minHeight="35.0" minWidth="165.0" onAction="#updateComboBoxMetodo" prefHeight="35.0" prefWidth="165.0" stylesheets="@css/ComboBoxCenter.css">
+									<HBox.margin>
+										<Insets left="25.0" />
+									</HBox.margin>
+								</ComboBox>
+							</children>
+						</HBox>
+						<VBox fx:id="vBoxIniciais" prefHeight="50.0" prefWidth="100.0">
+							<VBox.margin>
+								<Insets />
+							</VBox.margin>
+						</VBox>
+						<VBox fx:id="vBoxParametros" prefHeight="55.0" prefWidth="100.0">
+							<children>
+								<Text fx:id="textTituloParametros" strokeType="OUTSIDE" strokeWidth="0.0" />
+							</children>
+							<VBox.margin>
+								<Insets top="20.0" />
+							</VBox.margin>
+						</VBox>
+						<Pane>
+							<children>
+								<GridPane fx:id="parametrosGridPane" prefHeight="90.0" prefWidth="395.0">
+									<columnConstraints>
+										<ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+									</columnConstraints>
+									<rowConstraints>
+										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+									</rowConstraints>
+								</GridPane>
+							</children>
+						</Pane>
+						<Button fx:id="btCalcular" maxHeight="30.0" maxWidth="82.0" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#btCalcularAction" prefHeight="30.0" prefWidth="82.0" text="Run">
+							<font>
+								<Font size="13.0" />
+							</font>
+							<VBox.margin>
+								<Insets top="20.0" />
+							</VBox.margin>
+						</Button>
+						<VBox alignment="CENTER" prefHeight="62.0" prefWidth="548.0">
+							<children>
+								<ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" />
+							</children>
+						</VBox>
+					</children>
+				</VBox>
+			</children>
+		</HBox>
+	</children>
+</VBox>
