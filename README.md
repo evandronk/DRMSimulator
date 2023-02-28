@@ -1,5 +1,5 @@
 # DRMSimulator
-An free software to simulate the methane dry reforming
+An free software developed in Java to simulate the methane dry reforming
 
 ## Description
 The DRM Simulator is under development as a product of a PhD project. The main objective of the software is to provide the user with an intuitive tool that contains a scientific basis to carry out the dry methane reforming simulation.
