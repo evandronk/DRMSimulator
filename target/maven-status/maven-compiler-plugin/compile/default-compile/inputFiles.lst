@@ -8,6 +8,7 @@ C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\entities\EstimationE
 C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\gui\TabMomentoController.java
 C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\newton\NewtonModificado.java
 C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\gui\funcoesauxiliares\GenerateEquations.java
+C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\gui\funcoesauxiliares\Export.java
 C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\util\Utils.java
 C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\enxame\ParticleSwarm.java
 C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\enxame\PSOUtil.java
@@ -19,7 +20,6 @@ C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\gui\TabSimulateContr
 C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\gui\funcoesauxiliares\ManipulateTables.java
 C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\gui\AboutController.java
 C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\gui\funcoesauxiliares\PDEBuilder.java
-C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\gui\funcoesauxiliares\ConverteVazao.java
 C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\OdeSolver\DiferencasFinitas.java
 C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\images\package-info.java
 C:\Users\vandr\eclipse-workspace\DRMSimulator\src\main\java\gui\TabInletController.java
