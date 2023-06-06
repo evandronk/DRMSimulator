@@ -48,8 +48,8 @@ public class Constantes {
 		return rho;
 	}
 	
-	public Double velocidade(Double Q1, Double Q2, Double diametro) {
-		return ((Q1+Q2)/(diametro*diametro*3.14159265/4));		
+	public Double velocidade(Double Q1, Double Q2, Double diametro, Double T) {
+		return (4.0*(T/273.15)*(Q1+Q2)/(diametro*diametro*3.14159265));		
 	}
 	
 	public List<Double> Cpmix(Double Q1, Double Q2, Double T) { 
@@ -72,8 +72,8 @@ public class Constantes {
 		Double d2 = 7.948387;
 		Double e2 = -0.136638;
 		
-		Double Cp1 =  (a1 + b1*t + c1*Math.pow(t, 2) + d1*Math.pow(t, 3) + e1/(Math.pow(t, 2)))/16.04; // kJ/kgK
-		Double Cp2 =  (a2 + b2*t + c2*Math.pow(t, 2) + d2*Math.pow(t, 3) + e2/(Math.pow(t, 2)))/44.01;// kJ/kgK
+		Double Cp1 =  (a1 + b1*t + c1*Math.pow(t, 2) + d1*Math.pow(t, 3) + e1/(Math.pow(t, 2)))/16000.04; // kJ/kgK
+		Double Cp2 =  (a2 + b2*t + c2*Math.pow(t, 2) + d2*Math.pow(t, 3) + e2/(Math.pow(t, 2)))/44000.01;// kJ/kgK
 
 		Double CpMix = Cp1*y1 + Cp2*y2; // kJ/kgK
 		
@@ -152,8 +152,8 @@ public class Constantes {
 	
 	public Double Reynolds(Double Q1,Double Q2, Double Temp, Double diametro, Double pressao) {
 		
-		Double rey = densidade(Q1,Q2,pressao,Temp)*velocidade(Q1,Q2,diametro)*(diametro)/viscosidade(Q1,Q2,Temp).get(0).get(2); 
-		
+		Double rey = densidade(Q1,Q2,pressao,Temp)*velocidade(Q1,Q2,diametro, Temp)*(0.0005)/viscosidade(Q1,Q2,Temp).get(0).get(2); 
+		System.out.println(rey);
 		return rey; 
 		// Verificar se diametro da coluna ou diametro da particula
 	}
@@ -192,8 +192,8 @@ public class Constantes {
 	
 
 	public Double CondTermEff(Double Q1,Double Q2,Double Temp, Double porosidade, Double diametro, Double pressao) {
-		Double lambda3 = 20.0;
-		Double lambda4 = 0.50;
+		Double lambda3 = 10.0;
+		Double lambda4 = 0.5;
 		
 		Double lambdaL = condTermica(Q1,Q2,Temp)*(lambda3 + lambda4*Prandtl(Q1, Q2, Temp)*Reynolds(Q1, Q2, Temp, diametro, pressao));
 
@@ -257,6 +257,25 @@ public class Constantes {
 		
 		Double hReacao = 1000*(2*(deltaH.get(2)+deltaH.get(3))-deltaH.get(0)-deltaH.get(1)+HReacao298);
 		return hReacao;
+	}
+	
+	
+	//Air (External) Constants
+	
+	public Double airThermalCond(Double T) {
+		return 0.0101559353032494 + 0.0000568209293811772*T;
+	}
+	
+	public Double airDynamicVisc(Double T) {
+		return 0.000001*(5.02695562921564 + 0.0486904360169041*T- 0.0000118375349869936*T*T);
+	}
+	
+	public Double airCp(Double T) {
+		return 1012.52358996270 - 0.141314834485717*T + 0.000449642244199701*T*T - 1.78669256209332*T*T*T*0.0000001;
+	}
+	
+	public Double airDensity(Double T) {
+		return 352.941957680136/T;
 	}
 	
 }

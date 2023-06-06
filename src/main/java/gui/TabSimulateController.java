@@ -3,6 +3,7 @@ package gui;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -20,6 +21,7 @@ import OdeSolver.DiferencasFinitas;
 import OdeSolver.RK4SistemasEdos;
 import OdeSolver.RKF45Storage;
 import entities.SimulationEntity;
+import gui.funcoesauxiliares.Export;
 import gui.funcoesauxiliares.GetNodeByRowCollumn;
 import gui.funcoesauxiliares.PDEBuilder;
 import gui.funcoesauxiliares.SetSimulationEntity;
@@ -78,6 +80,9 @@ public class TabSimulateController implements PropertyChangeListener, Initializa
 	
 	@FXML
 	Button buttonR = new Button();
+	
+	@FXML
+	Button buttonExport = new Button();
 	
 	@FXML
 	GridPane valueGridPane = new GridPane();
@@ -167,7 +172,6 @@ public class TabSimulateController implements PropertyChangeListener, Initializa
 		progressBar.setVisible(true);
 		btSimular.setDisable(true);
 		
-		
 		PDEBuilder pdeBuilder = new PDEBuilder();
 		equacoes = pdeBuilder.pdeBuilder(simulationEntity, reacoesController, energiaController);
 
@@ -190,6 +194,7 @@ public class TabSimulateController implements PropertyChangeListener, Initializa
 		List<String> condicoesIniciais = new ArrayList<String>();
 
 		condicoesIniciais.add(simulationEntity.getConcentrationCH4().toString());
+	
 		condicoesIniciais.add(simulationEntity.getConcentrationCO2().toString());
 		condicoesIniciais.add("0.0");
 		condicoesIniciais.add("0.0");
@@ -247,12 +252,11 @@ public class TabSimulateController implements PropertyChangeListener, Initializa
 
 		Thread firstThread = new Thread(() -> {
 
-			long start = System.currentTimeMillis();
+
 			List<List<Double>> Resultados = rkf45.Resolve(funcoes, listaVariaveis, resultadosIniciais,
 					Double.valueOf(textFinalTime.getText().toString()),
 					Double.valueOf(textMinStep.getText().toString()), Double.valueOf(textMaxStep.getText().toString()));
-			long finish = System.currentTimeMillis();
-			System.out.println((finish - start) / 1000.0);
+		
 
 			Platform.runLater(() -> {
 
@@ -601,6 +605,27 @@ public class TabSimulateController implements PropertyChangeListener, Initializa
 	}
 	
 
+	public void buttonExportAction() {
+		Export export = new Export();
+		if(resultadosGridPane.getChildren().size() > 1) {
+			List<List<Double>> excelTab = new ArrayList<List<Double>>();
+			for(int i = 1; i < resultadosGridPane.getChildren().size()/6; i++) {
+				List<Double> excelRow = new ArrayList<Double>();
+				for(int j = 0; j < 6; j++) {
+					excelRow.add(Double.valueOf( ((Text)resultadosGridPane.getChildren().get(6*i+j)).getText().toString().replace(",", ".")));
+				}
+				excelTab.add(excelRow);
+			}
+			
+			try {
+				export.exportExcel(excelTab,energiaController.inletT.getText().toString(), Double.valueOf(textFildSearch.getText().toString()));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
 }
 
 

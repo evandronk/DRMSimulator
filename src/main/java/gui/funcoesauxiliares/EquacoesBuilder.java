@@ -87,6 +87,12 @@ public class EquacoesBuilder {
 		java.awt.Image imagem1 = formula1.createBufferedImage(TeXConstants.STYLE_TEXT, k, java.awt.Color.BLACK, null);
 		Image fxImagem1 = SwingFXUtils.toFXImage((BufferedImage) imagem1, null);
 		equacoes.add(fxImagem1);
+		
+		final String equacao2 = "\\displaystyle r=  \\frac{Ae^{-\\frac{E}{RT}}\\left(K_{CH_4}K_{CO_2}[CH_4] [CO_2]\\right)}{(1+K_{CH_4}[CH_4]+K_{CO_2}[CO_2]+K_{H_2}[H_2]+K_{CO}[CO])^4}";
+		final TeXFormula formula2 = new TeXFormula(equacao2);
+		java.awt.Image imagem2 = formula2.createBufferedImage(TeXConstants.STYLE_TEXT, k, java.awt.Color.BLACK, null);
+		Image fxImagem2 = SwingFXUtils.toFXImage((BufferedImage) imagem2, null);
+		equacoes.add(fxImagem2);
 	}
 	
 	private void addEquacoesLHR() {
@@ -95,6 +101,12 @@ public class EquacoesBuilder {
 		java.awt.Image imagem1 = formula1.createBufferedImage(TeXConstants.STYLE_TEXT, k, java.awt.Color.BLACK, null);
 		Image fxImagem1 = SwingFXUtils.toFXImage((BufferedImage) imagem1, null);
 		equacoes.add(fxImagem1);
+		
+		final String equacao2 = "\\displaystyle r=  \\frac{Ae^{-\\frac{E}{RT}}\\left(K_{CH_4}K_{CO_2}[CH_4] [CO_2]-\\frac{[H_2]^2[CO]^2K_{H_2}^2K_{CO}^2}{K_p}\\right)}{(1+K_{CH_4}[CH_4]+K_{CO_2}[CO_2]+K_{H_2}[H_2]+K_{CO}[CO])^4}";
+		final TeXFormula formula2 = new TeXFormula(equacao2);
+		java.awt.Image imagem2 = formula2.createBufferedImage(TeXConstants.STYLE_TEXT, k, java.awt.Color.BLACK, null);
+		Image fxImagem2 = SwingFXUtils.toFXImage((BufferedImage) imagem2, null);
+		equacoes.add(fxImagem2);
 	}
 	
 	

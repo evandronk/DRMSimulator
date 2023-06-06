@@ -33,7 +33,7 @@ public class ComboBoxBuilder {
 		List<Text> displayCinetica = new ArrayList<Text>();
 
 		Text textPT = new Text();
-		textPT.setText("Modelo de Potências");
+		textPT.setText("Power-Law");
 		textPT.setFont(Font.font("System", 13));
 
 		displayCinetica.add(textPT);
@@ -152,7 +152,7 @@ public class ComboBoxBuilder {
 
 		List<Image> displayUTC = new ArrayList<Image>();
 
-		final String texTUTC = "\\text{J}/\\text{m}^2\\text{sK}";
+		final String texTUTC = "\\text{kJ}/\\text{m}^2\\text{sK}";
 		final TeXFormula formulaUTC = new TeXFormula(texTUTC);
 		BufferedImage UTCImage = (BufferedImage) formulaUTC.createBufferedImage(TeXConstants.STYLE_TEXT, k,
 				java.awt.Color.BLACK, null);
@@ -170,7 +170,7 @@ public class ComboBoxBuilder {
 
 		List<Image> displayResultados = new ArrayList<Image>();
 
-		final String res1 = "\\mbox{kg}_{CH_4}/\\mbox{kg}_{cat}\\mbox{h}";
+		final String res1 = "\\text{mol}/\\mbox{kg}_{cat}\\mbox{h}";
 		final TeXFormula res1Tex = new TeXFormula(res1);
 		java.awt.Image res1Image = res1Tex.createBufferedImage(TeXConstants.STYLE_TEXT, k, java.awt.Color.BLACK, null);
 		Image res1FX = SwingFXUtils.toFXImage((BufferedImage) res1Image, null);

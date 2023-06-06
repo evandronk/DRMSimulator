@@ -140,7 +140,7 @@ public class SetSimulationEntity {
 			return null;
 		}
 
-		Double velocity = constantes.velocidade(vCH4, vCO2, diameter);
+		Double velocity = constantes.velocidade(vCH4, vCO2, diameter,inletT);
 		simulationEntity.setVelocity(velocity);
 
 		Double DL = constantes.DispAx(vCH4, vCO2, inletT, porosity, diameter, pressure);
@@ -175,7 +175,6 @@ public class SetSimulationEntity {
 				parameters.add(Double.valueOf(
 						((TextField) getnode.getNodeByRowColumnIndex(1, i, reactionController.getGridPaneParametros()))
 								.getText().toString()));
-
 			} catch (Exception e) {
 				String errorParameter = "Kinetic Parameter";
 				alert.showAlert("Parameter not set or invalid", "Parameter: " + errorParameter, null,

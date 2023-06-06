@@ -88,6 +88,8 @@ public class TabReactionController implements Initializable {
 	private ImageView imageViewE = new ImageView();
 	private ImageView imageViewKCH4 = new ImageView();
 	private ImageView imageViewKCO2 = new ImageView();
+	private ImageView imageViewKH2 = new ImageView();
+	private ImageView imageViewKCO = new ImageView();
 	private ImageView imageViewm = new ImageView();
 	private ImageView imageViewn = new ImageView();
 	private ImageView imageViewp = new ImageView();
@@ -103,10 +105,10 @@ public class TabReactionController implements Initializable {
 	private TextField parameter7 = new TextField();
 
 	private List<String> listStringsParametros = Arrays.asList("\\text{A}", "\\text{E}", "\\text{K}_{CH_4}",
-			"\\text{K}_{CO_2}", "\\text{m}", "\\text{n}", "\\text{p}", "\\text{q}", "\\text{K}_p");
+			"\\text{K}_{CO_2}", "\\text{m}", "\\text{n}", "\\text{p}", "\\text{q}", "\\text{K}_p","\\text{K}_{H_2}","\\text{K}_{CO}");
 
 	private List<ImageView> listImageViewParametros = Arrays.asList(imageViewA, imageViewE, imageViewKCH4,
-			imageViewKCO2, imageViewm, imageViewn, imageViewp, imageViewq, imageViewLp);
+			imageViewKCO2, imageViewm, imageViewn, imageViewp, imageViewq, imageViewLp,imageViewKH2,imageViewKCO);
 
 	private List<Boolean> listImageViewParametrosSize = Arrays.asList(false, false, false, false, false, false, false,
 			false, false);
@@ -287,7 +289,7 @@ public class TabReactionController implements Initializable {
 		} else if (comboBoxLeis.getSelectionModel().getSelectedIndex() == 2) {
 			if (!checkBoxR.isSelected()) {
 				if (comboBoxLeiVelocidade.getSelectionModel().getSelectedIndex() == 0) {
-					// Irreversible Power Law
+					// Irreversible LH
 
 					gridPaneParametros.add(listImageViewParametros.get(0), 0, 0);
 					gridPaneParametros.add(listImageViewParametros.get(1), 1, 0);
@@ -301,11 +303,29 @@ public class TabReactionController implements Initializable {
 
 					nParameters = 4;
 					setConstraints();
-				} else if (comboBoxLeiVelocidade.getSelectionModel().getSelectedIndex() == 1) {
-					//
+				} else if(comboBoxLeiVelocidade.getSelectionModel().getSelectedIndex() == 1) {
+					gridPaneParametros.getChildren().clear();
+					gridPaneParametros.add(listImageViewParametros.get(0), 0, 0);
+					gridPaneParametros.add(listImageViewParametros.get(1), 1, 0);
+					gridPaneParametros.add(listImageViewParametros.get(2), 2, 0);
+					gridPaneParametros.add(listImageViewParametros.get(3), 3, 0);
+					gridPaneParametros.add(listImageViewParametros.get(9), 4, 0);
+					gridPaneParametros.add(listImageViewParametros.get(10), 5, 0);
+		
+
+					gridPaneParametros.add(parameter1, 0, 1);
+					gridPaneParametros.add(parameter2, 1, 1);
+					gridPaneParametros.add(parameter3, 2, 1);
+					gridPaneParametros.add(parameter4, 3, 1);
+					gridPaneParametros.add(parameter5, 4, 1);
+					gridPaneParametros.add(parameter6, 5, 1);
+	
+
+					nParameters = 6;
+					setConstraints();
 				}
-			} else {
-				gridPaneParametros.add(listImageViewParametros.get(0), 0, 0);
+			} else { //Reversible LH
+				if (comboBoxLeiVelocidade.getSelectionModel().getSelectedIndex() == 0) {gridPaneParametros.add(listImageViewParametros.get(0), 0, 0);
 				gridPaneParametros.add(listImageViewParametros.get(1), 1, 0);
 				gridPaneParametros.add(listImageViewParametros.get(2), 2, 0);
 				gridPaneParametros.add(listImageViewParametros.get(3), 3, 0);
@@ -318,7 +338,28 @@ public class TabReactionController implements Initializable {
 				gridPaneParametros.add(parameter5, 4, 1);
 
 				nParameters = 5;
-				setConstraints();
+				setConstraints();}
+				else if(comboBoxLeiVelocidade.getSelectionModel().getSelectedIndex() == 1) {
+					gridPaneParametros.getChildren().clear();
+					gridPaneParametros.add(listImageViewParametros.get(0), 0, 0);
+					gridPaneParametros.add(listImageViewParametros.get(1), 1, 0);
+					gridPaneParametros.add(listImageViewParametros.get(2), 2, 0);
+					gridPaneParametros.add(listImageViewParametros.get(3), 3, 0);
+					gridPaneParametros.add(listImageViewParametros.get(9), 4, 0);
+					gridPaneParametros.add(listImageViewParametros.get(10), 5, 0);
+					gridPaneParametros.add(listImageViewParametros.get(8), 6, 0);
+
+					gridPaneParametros.add(parameter1, 0, 1);
+					gridPaneParametros.add(parameter2, 1, 1);
+					gridPaneParametros.add(parameter3, 2, 1);
+					gridPaneParametros.add(parameter4, 3, 1);
+					gridPaneParametros.add(parameter5, 4, 1);
+					gridPaneParametros.add(parameter6, 5, 1);
+					gridPaneParametros.add(parameter7, 6, 1);
+
+					nParameters = 7;
+					setConstraints();
+				}
 			}
 		}
 

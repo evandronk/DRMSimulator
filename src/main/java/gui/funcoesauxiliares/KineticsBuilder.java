@@ -41,11 +41,15 @@ public class KineticsBuilder {
 			Double E = entity.getParameters().get(1);
 			Double m = entity.getParameters().get(2);
 			Double n = entity.getParameters().get(3);
+			Double constante = (entity.getCH4Flow()*16.04+entity.getCO2Flow()*44.01)*3600.0*273.15/(entity.getInletTemperature());
+			
 			if(energyController.isotermicoCheckBox.isSelected()) {
-			kinetics = A + "*exp(-" + E / (8.31446 * entity.getInletTemperature()) + ")*[A0](t,z)^" + m + "*[B0](t,z)^"
+				constante = 1.0;
+				kinetics = A + "*exp(-" + E / (8.31446 * entity.getInletTemperature()) + ")*[A0](t,z)^" + m + "*[B0](t,z)^"
 					+ n;}
 			else {
-			kinetics = A + "*exp(-" + E +"/ (8.31446*[T0](t,z)))*[A0](t,z)^" + m + "*[B0](t,z)^"+ n;
+				constante = 1.0;
+				kinetics = A + "*exp(-" + E +"/ (8.31446*[T0](t,z)))*(([A0](t,z)*"+constante+")^(" + m + "))*(([B0](t,z)*"+constante+")^("+ n+"))";
 			}
 		} else if (entity.getKinetics() == 1) {
 			// not implemented
@@ -66,10 +70,11 @@ public class KineticsBuilder {
 			Double q = entity.getParameters().get(5);
 			Double Kp = entity.getParameters().get(6);
 			if(energyController.isotermicoCheckBox.isSelected()) {
-			kinetics = A + "*exp(-" + E / (8.31446 * entity.getInletTemperature()) + ")*([A0](t,z)^" + m + "*[B0](t,z)^"
-					+ n + "-([C0](t,0)^" + p + "*[D0](t,z)^" + q + ")/" + Kp + ")";
+			//not implemented
 			}else {
-				kinetics = A + "*exp(-" + E +"/ (8.31446*[T0](t,z)))*([A0](t,z)^"+ m +"*[B0](t,z)^"+n +"-([C0](t,z)^" + p + "*[D0](t,z)^" + q + ")/" + Kp + ")";
+				Double constante = (entity.getCH4Flow()+entity.getCO2Flow())*3600.0*273.15/entity.getInletTemperature();
+				constante = 1.0;
+				kinetics = A + "*exp(-" + E +"/ (8.31446*[T0](t,z)))*(([A0](t,z)*"+constante+")^"+ m +"*([B0](t,z)*"+constante+")^"+n +"-(([C0](t,z)*"+constante+")^" + p + "*([D0](t,z)*"+constante+")^" + q + ")/" + Kp + ")";
 			}
 		} else {
 
@@ -137,7 +142,22 @@ public class KineticsBuilder {
 				kinetics = A * KCH4 * KCO2 + "*exp(-" + E +"/ (8.31446*[T0](t,z)))*[A0](t,z)*[B0](t,z)/(1+[A0](t,z)*" + KCH4 + "+[B0](t,z)*" + KCO2 + ")^2";
 			}
 		} else if (entity.getKinetics() == 1) {
-			// not implemented
+			Double A = entity.getParameters().get(0);
+			Double E = entity.getParameters().get(1);
+			Double KCH4 = entity.getParameters().get(2);
+			Double KCO2 = entity.getParameters().get(3);
+			Double KH2 = entity.getParameters().get(4);
+			Double KCO = entity.getParameters().get(5);
+
+			if(energyController.isotermicoCheckBox.isSelected()) {
+				// not implemented
+			}else {
+				Double constante = (entity.getCH4Flow()*16.04+entity.getCO2Flow()*44.01)*3600.0*273.15/entity.getInletTemperature();
+				constante = 1.0;
+				kinetics = A  + "*exp(-" + E +"/ (8.31446*[T0](t,z)))*(([A0](t,z)*[B0](t,z)*"+constante*constante* KCH4*KCO2+"))/"
+						+ "((1+[A0](t,z)*" + KCH4*constante + "+[B0](t,z)*" + KCO2*constante + "+[C0](t,z)*"+KH2*constante+"+[D0](t,z)*"+KCO*constante+")^4)";
+	
+			}
 		}
 
 		return kinetics;
@@ -161,9 +181,23 @@ public class KineticsBuilder {
 				kinetics = A * KCH4 * KCO2 + "*exp(-" + E +"/ (8.31446*[T0](t,z)))*([A0](t,z)*[B0](t,z)-([C0](t,z)^2*[D0](t,z)^2/" + Kp + "))/(1+[A0](t,z)*" + KCH4
 						+ "+[B0](t,z)*" + KCO2 + ")^2";
 			}
-
+			
 		} else if (entity.getKinetics() == 1) {
-			// not implemented
+			Double A = entity.getParameters().get(0);
+			Double E = entity.getParameters().get(1);
+			Double KCH4 = entity.getParameters().get(2);
+			Double KCO2 = entity.getParameters().get(3);
+			Double KH2 = entity.getParameters().get(4);
+			Double KCO = entity.getParameters().get(5);
+			Double Kp = entity.getParameters().get(6);
+
+			if(energyController.isotermicoCheckBox.isSelected()) {
+				// not implemented
+			}else {
+				Double constante = (entity.getCH4Flow()*16+entity.getCO2Flow()*30)*3600.0*273.15/entity.getInletTemperature();
+				kinetics = A  + "*exp(-" + E +"/ (8.31446*[T0](t,z)))*(([A0](t,z)*[B0](t,z)*"+ constante*constante*KCH4 * KCO2+")-([C0](t,z)^2*[D0](t,z)^2*"+constante*constante*Math.pow(KH2*KCO,2)+"/" + Kp + "))/"
+						+ "((1+[A0](t,z)*" + KCH4*constante + "+[B0](t,z)*" + KCO2*constante + "+[C0](t,z)*"+KH2*constante+"+[D0](t,z)*"+KCO*constante+")^4)";
+			}
 		}
 
 		return kinetics;

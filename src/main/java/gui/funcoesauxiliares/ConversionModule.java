@@ -17,12 +17,12 @@ public class ConversionModule {
 
 		Double flowOut = flowIn;
 		// Temp must be in Kelvin
-		// m3/h -> m3/s - 1
-		// m3/min -> m3/s - 2
-		// m3/s -> m3/s - 3
-		// mL/h -> m3/s - 4
-		// ml/min -> m3/s - 5
-		// ml/s -> m3/s - 6
+		// m3/h -> m3/s - 0
+		// m3/min -> m3/s - 1
+		// m3/s -> m3/s - 2
+		// mL/h -> m3/s - 3
+		// ml/min -> m3/s - 4
+		// ml/s -> m3/s - 5
 		// Adotando gás ideal pV = nRT
 
 		if (subChoice == 0) {
@@ -35,7 +35,6 @@ public class ConversionModule {
 			flowOut = flowIn / 3600000000.0;
 		} else if (subChoice == 4) {
 			flowOut = flowIn / 60000000.0;
-			System.out.println("flow"+flowOut);
 		} else if (subChoice == 5) {
 			flowOut = flowIn / 1000000.0;
 		}

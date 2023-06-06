@@ -83,6 +83,11 @@
                               <Insets left="15.0" />
                            </HBox.margin>
                         </TextField>
+                        <Button fx:id="buttonExport" mnemonicParsing="false" onAction="#buttonExportAction" text="Export">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Button>
                         <Label fx:id="label">
                            <HBox.margin>
                               <Insets left="30.0" />

@@ -11,9 +11,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="704.0" maxWidth="1168.0" minHeight="358.0" minWidth="820.0" prefHeight="432.0" prefWidth="1168.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TabReactionController">
+<VBox maxHeight="704.0" maxWidth="1500.0" minHeight="358.0" minWidth="820.0" prefHeight="432.0" prefWidth="1168.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TabReactionController">
 	<children>
-		<VBox prefHeight="432.0" prefWidth="1116.0">
+		<VBox prefHeight="432.0" prefWidth="1500.0">
 			<children>
 				<GridPane prefHeight="32.0" prefWidth="1045.0" VBox.vgrow="NEVER">
 					<columnConstraints>
@@ -42,7 +42,7 @@
 					<columnConstraints>
 						<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" />
 						<ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
-						<ColumnConstraints fx:id="columnC" hgrow="SOMETIMES" maxWidth="696.0" minWidth="10.0" prefWidth="367.0" />
+						<ColumnConstraints fx:id="columnC" hgrow="SOMETIMES" maxWidth="900.0" minWidth="10.0" prefWidth="400.0" />
                   <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="SOMETIMES" maxWidth="696.0" minWidth="10.0" prefWidth="396.0" />
 					</columnConstraints>
 					<rowConstraints>

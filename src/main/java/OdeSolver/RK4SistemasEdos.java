@@ -166,7 +166,7 @@ public class RK4SistemasEdos {
 				resultado.add(resultadorkf45);
 		
 				 try {
-				       Thread.sleep(200);
+				       Thread.sleep(50);
 				    } catch(InterruptedException e) {
 				    }
 				Double resultadork4 = resultados.get(i).get(f)+ (25.0/16.0)*K.get(0).get(f)+(1408.0/2565.0)*K.get(2).get(f)+(2197.0/4104.0)*K.get(3).get(f)-K.get(4).get(f)/5.0;

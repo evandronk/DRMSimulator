@@ -19,7 +19,6 @@
 
 
 
-
 		<!-- https://mvnrepository.com/artifact/com.googlecode.efficient-java-matrix-library/ejml -->
 		<dependency>
 			<groupId>com.googlecode.efficient-java-matrix-library</groupId>
